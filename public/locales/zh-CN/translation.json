@@ -1,0 +1,48 @@
+{
+  "app.title": "TouchFish Formatter",
+  "app.subtitle": "文章/题解 格式检查工具",
+
+  "nav.editor": "编辑器",
+  "nav.config": "设置",
+
+  "editor.placeholder": "在此粘贴 Markdown...",
+  "editor.format": "一键格式化",
+  "editor.copy": "复制",
+  "editor.showDiff": "显示格式化后差异",
+  "editor.hideDiff": "隐藏格式化后差异",
+  "editor.original": "原始文本",
+  "editor.formatted": "格式化后",
+  "editor.copied": "已复制到剪贴板！",
+  "editor.formattedSuccess": "格式化成功！",
+
+  "config.title": "格式化规则",
+  "config.symbolRules": "符号规则",
+  "config.functionRules": "函数规则",
+  "config.syntaxRules": "语法规则",
+  "config.punctuation": "标点符号",
+  "config.fwPunctuation": "全角标点",
+  "config.fwPunctuationDesc": "将 CJK 字符后的半角标点转换为全角标点",
+  "config.reset": "恢复默认",
+  "config.resetDone": "规则已恢复为默认值",
+
+  "rule.sym/star-to-times": "将 * 转换为 \\times",
+  "rule.sym/less-equal": "将 <= 转换为 \\le",
+  "rule.sym/greater-equal": "将 >= 转换为 \\ge",
+  "rule.sym/not-equal": "将 != 转换为 \\neq",
+  "rule.sym/double-equal-to-single": "将 == 转换为 =",
+  "rule.sym/arrow-right-to": "将 -> 转换为 \\to",
+  "rule.sym/arrow-left-gets": "将 <- 转换为 \\gets",
+  "rule.sym/double-arrow-implies": "将 => 转换为 \\Rightarrow",
+  "rule.fn/gcd": "将 gcd 转换为 \\gcd",
+  "rule.fn/min": "将 min 转换为 \\min",
+  "rule.fn/max": "将 max 转换为 \\max",
+  "rule.fn/log": "将 log 转换为 \\log",
+  "rule.fn/lca": "将 LCA 转换为 \\operatorname{LCA}",
+  "rule.fn/lcm": "将 lcm 转换为 \\operatorname{lcm}",
+  "rule.fn/mex": "将 MEX 转换为 \\operatorname{MEX}",
+  "rule.syn/array-to-subscript": "将 dp[i][j] 转换为 dp_{i,j}",
+
+  "common.language": "语言",
+  "common.darkMode": "深色模式",
+  "common.lightMode": "浅色模式"
+}

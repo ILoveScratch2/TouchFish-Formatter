@@ -1,0 +1,48 @@
+{
+  "app.title": "TouchFish Formatter",
+  "app.subtitle": "Luogu Article Format Checker",
+
+  "nav.editor": "Editor",
+  "nav.config": "Settings",
+
+  "editor.placeholder": "Paste your Luogu article Markdown here...",
+  "editor.format": "Format",
+  "editor.copy": "Copy",
+  "editor.showDiff": "Show Diff",
+  "editor.hideDiff": "Hide Diff",
+  "editor.original": "Original",
+  "editor.formatted": "Formatted",
+  "editor.copied": "Copied to clipboard!",
+  "editor.formattedSuccess": "Formatted successfully!",
+
+  "config.title": "Formatting Rules",
+  "config.symbolRules": "Symbol Rules",
+  "config.functionRules": "Function Rules",
+  "config.syntaxRules": "Syntax Rules",
+  "config.punctuation": "Punctuation",
+  "config.fwPunctuation": "Full-width punctuation",
+  "config.fwPunctuationDesc": "Convert half-width punctuation to full-width after CJK characters",
+  "config.reset": "Reset to Defaults",
+  "config.resetDone": "Rules reset to defaults",
+
+  "rule.sym/star-to-times": "Convert * to \\times",
+  "rule.sym/less-equal": "Convert <= to \\le",
+  "rule.sym/greater-equal": "Convert >= to \\ge",
+  "rule.sym/not-equal": "Convert != to \\neq",
+  "rule.sym/double-equal-to-single": "Convert == to =",
+  "rule.sym/arrow-right-to": "Convert -> to \\to",
+  "rule.sym/arrow-left-gets": "Convert <- to \\gets",
+  "rule.sym/double-arrow-implies": "Convert => to \\Rightarrow",
+  "rule.fn/gcd": "Convert gcd to \\gcd",
+  "rule.fn/min": "Convert min to \\min",
+  "rule.fn/max": "Convert max to \\max",
+  "rule.fn/log": "Convert log to \\log",
+  "rule.fn/lca": "Convert LCA to \\operatorname{LCA}",
+  "rule.fn/lcm": "Convert lcm to \\operatorname{lcm}",
+  "rule.fn/mex": "Convert MEX to \\operatorname{MEX}",
+  "rule.syn/array-to-subscript": "Convert dp[i][j] to dp_{i,j}",
+
+  "common.language": "Language",
+  "common.darkMode": "Dark Mode",
+  "common.lightMode": "Light Mode"
+}
