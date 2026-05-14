@@ -52,6 +52,19 @@ export const textPreprocess: ReplaceRule[] = [
     pattern: cjkRe(`({CJK}) +(${FW_PUNCT_RE.source})`, "g"),
     replacement: "$1$2",
   },
+  {
+    // Remove spaces around em-dashes between CJK characters (pangu inserts them)
+    pattern: cjkRe(`({CJK}) +(—+) +({CJK})`, "g"),
+    replacement: "$1$2$3",
+  },
+  {
+    pattern: cjkRe(`({CJK}) +(—+)`, "g"),
+    replacement: "$1$2",
+  },
+  {
+    pattern: cjkRe(`(—+) +({CJK})`, "g"),
+    replacement: "$1$2",
+  },
 ];
 
 function punctuationCjkToFw(text: string): string {
