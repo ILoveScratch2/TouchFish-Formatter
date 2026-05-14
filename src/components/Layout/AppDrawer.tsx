@@ -15,6 +15,7 @@ import {
 import {
   EditNote as EditorIcon,
   Tune as ConfigIcon,
+  GitHub as GitHubIcon,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 
@@ -38,7 +39,7 @@ export default function AppDrawer({ open, onClose }: AppDrawerProps) {
   ];
 
   const drawerContent = (
-    <>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <Toolbar variant="dense" />
       <Box sx={{ px: 2, pt: 2, pb: 1 }}>
         <Typography
@@ -99,7 +100,37 @@ export default function AppDrawer({ open, onClose }: AppDrawerProps) {
           );
         })}
       </List>
-    </>
+      <Box sx={{ flexGrow: 1 }} />
+      <Divider />
+      <List sx={{ px: 1, py: 1 }}>
+        <ListItemButton
+          component="a"
+          href="https://github.com/ILoveScratch2/TouchFish-Formatter"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => { if (isMobile) onClose(); }}
+          sx={{
+            borderRadius: "12px",
+            minHeight: 40,
+          }}
+        >
+          <ListItemIcon sx={{ minWidth: 36 }}>
+            <GitHubIcon />
+          </ListItemIcon>
+          <ListItemText
+            primary="ILoveScratch2/TouchFish-Formatter"
+            primaryTypographyProps={{
+              fontSize: "0.8rem",
+              sx: {
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              },
+            }}
+          />
+        </ListItemButton>
+      </List>
+    </Box>
   );
 
   return (
