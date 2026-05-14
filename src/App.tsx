@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { I18nextProvider } from "react-i18next";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import i18n from "./i18n";
 import { createAppTheme } from "./theme";
 import { AppContextProvider, useAppContext } from "./context/AppContext";
@@ -16,7 +16,7 @@ function ThemedApp() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<EditorPage />} />
@@ -24,7 +24,7 @@ function ThemedApp() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ThemeProvider>
   );
 }
