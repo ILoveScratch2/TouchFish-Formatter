@@ -20,6 +20,7 @@ interface EditorToolbarProps {
   onFormat: () => void;
   onCopy: () => void;
   hasInput: boolean;
+  formatting?: boolean;
 }
 
 export default function EditorToolbar({
@@ -28,6 +29,7 @@ export default function EditorToolbar({
   onFormat,
   onCopy,
   hasInput,
+  formatting,
 }: EditorToolbarProps) {
   const { t } = useTranslation();
   const [snackbar, setSnackbar] = useState<string | null>(null);
@@ -54,7 +56,7 @@ export default function EditorToolbar({
         variant="contained"
         startIcon={<FormatIcon />}
         onClick={onFormat}
-        disabled={!hasInput}
+        disabled={!hasInput || formatting}
         size="small"
         sx={{ borderRadius: "8px" }}
       >

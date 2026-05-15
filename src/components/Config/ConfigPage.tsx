@@ -13,10 +13,12 @@ import {
   RestartAlt as ResetIcon,
   InfoOutlined as AboutIcon,
   Tune as FormatIcon,
+  Code as CodeIcon,
 } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useAppContext } from "../../context/AppContext";
 import { MATH_RULES } from "../../engine/rules";
+import CodeFormatTab from "./CodeFormatTab";
 
 const PAGE_WIDTH = 680;
 
@@ -42,6 +44,7 @@ export default function ConfigPage() {
             sx={{ "& .MuiTab-root": { textTransform: "none", minHeight: 40 } }}
           >
             <Tab icon={<FormatIcon />} iconPosition="start" label={t("config.tabs.basic")} />
+            <Tab icon={<CodeIcon />} iconPosition="start" label={t("config.tabs.code")} />
             <Tab icon={<AboutIcon />} iconPosition="start" label={t("config.tabs.about")} />
           </Tabs>
         </Box>
@@ -61,7 +64,8 @@ export default function ConfigPage() {
         }}
       >
         {tab === 0 && <BasicTab />}
-        {tab === 1 && <AboutTab />}
+        {tab === 1 && <CodeFormatTab />}
+        {tab === 2 && <AboutTab />}
       </Box>
     </Box>
   );
