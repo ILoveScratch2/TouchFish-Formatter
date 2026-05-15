@@ -83,6 +83,17 @@ export default function CodeFormatTab() {
                 </Grid>
               </Section>
 
+              <Section title={t("config.clang.languages")}>
+                <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: "block" }}>
+                  {t("config.clang.languagesHint")}
+                </Typography>
+                <TextField size="small" fullWidth
+                  placeholder="java, js, cs, proto, ts"
+                  value={c.customLanguages}
+                  onChange={(e) => set({ customLanguages: e.target.value })}
+                  sx={{ "& input": { fontSize: 13, fontFamily: "monospace" } }} />
+              </Section>
+
               <Section title={t("config.clang.alignment")}>
                 <Grid>
                   <SwitchField label={t("config.clang.alignConsecutiveAssignments")} checked={c.alignConsecutiveAssignments}

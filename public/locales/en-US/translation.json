@@ -51,6 +51,8 @@
   "config.clang.off": "OFF",
   "config.clang.useCustom": "Use custom config",
   "config.clang.useCustomDesc": "Write raw .clang-format YAML configuration directly",
+  "config.clang.languages": "Languages",
+  "config.clang.languagesHint": "Built-in: c / cpp / h / hpp etc. Add more, separated by commas",
   "config.clang.general": "General",
   "config.clang.alignment": "Alignment",
   "config.clang.shortLines": "Short Lines",

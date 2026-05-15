@@ -51,6 +51,8 @@
   "config.clang.off": "关",
   "config.clang.useCustom": "使用自己的配置",
   "config.clang.useCustomDesc": "直接编写 .clang-format 风格的 YAML 配置文本",
+  "config.clang.languages": "适用语言",
+  "config.clang.languagesHint": "内置 c / cpp / h / hpp 等，可追加更多，用逗号分隔",
   "config.clang.general": "基本设置",
   "config.clang.alignment": "对齐",
   "config.clang.shortLines": "短行优化",

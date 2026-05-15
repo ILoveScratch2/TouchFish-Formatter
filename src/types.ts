@@ -47,6 +47,7 @@ export interface ClangFormatConfig {
   continuationIndentWidth: number;
   includeBlocks: string;
   cpp11BracedListStyle: boolean;
+  customLanguages: string;
 }
 
 export type AppAction =
