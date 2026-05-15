@@ -42,6 +42,17 @@
   "rule.fn/mex": "Convert MEX to \\operatorname{MEX}",
   "rule.syn/array-to-subscript": "Convert dp[i][j] to dp_{i,j}",
 
+  "config.tabs.basic": "Basic Formatting",
+  "config.tabs.about": "About",
+
+  "about.title": "About TouchFish Formatter",
+  "about.description": "A Markdown formatter for fixing common formatting issues and assisting in writing, making articles more polished and readable.",
+  "about.version": "Version",
+  "about.license": "License",
+  "about.author": "Author",
+  "about.authorDetail": "Made by ILoveScratch (YWD2023)",
+  "about.thanks": "Thanks!",
+
   "common.language": "Language",
   "common.darkMode": "Dark Mode",
   "common.lightMode": "Light Mode"

@@ -42,6 +42,17 @@
   "rule.fn/mex": "将 MEX 转换为 \\operatorname{MEX}",
   "rule.syn/array-to-subscript": "将 dp[i][j] 转换为 dp_{i,j}",
 
+  "config.tabs.basic": "基础格式化",
+  "config.tabs.about": "关于",
+
+  "about.title": "关于 TouchFish Formatter",
+  "about.description": "一个 Markdown 格式化工具，辅助修复常见格式问题和辅助编写，让排版更加规范美观。",
+  "about.version": "版本",
+  "about.license": "许可证",
+  "about.author": "作者",
+  "about.authorDetail": "由 ILoveScratch (YWD2023) 制作",
+  "about.thanks": "Thanks!",
+
   "common.language": "语言",
   "common.darkMode": "深色模式",
   "common.lightMode": "浅色模式"
