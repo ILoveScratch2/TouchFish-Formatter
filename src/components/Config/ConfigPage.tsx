@@ -154,8 +154,8 @@ function AboutTab() {
 
       <Paper variant="outlined" sx={{ p: 2, mb: 3, borderRadius: "12px" }}>
         {[
-          [t("about.version"), "1.0.0"],
-          [t("about.license"), "MIT"],
+          [t("about.version"), __APP_VERSION__],
+          [t("about.license"), "AGPL-3.0"],
           [t("about.author"), t("about.authorDetail")],
         ].map(([label, value], i, arr) => (
           <Box key={label}>
