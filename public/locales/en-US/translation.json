@@ -52,7 +52,7 @@
   "config.clang.useCustom": "Use custom config",
   "config.clang.useCustomDesc": "Write raw .clang-format YAML configuration directly",
   "config.clang.languages": "Languages",
-  "config.clang.languagesHint": "Built-in: c / cpp / h / hpp etc. Add more, separated by commas",
+  "config.clang.languagesHint": "Only format code blocks matching these identifiers, comma-separated. Supports any language clang-format knows.",
   "config.clang.general": "General",
   "config.clang.alignment": "Alignment",
   "config.clang.shortLines": "Short Lines",
@@ -89,7 +89,7 @@
   "config.clang.sortIncludes": "Sort Includes",
   "config.clang.includeBlocks": "Include Blocks",
   "config.clang.cpp11BracedListStyle": "C++11 Braced List Style",
-  "config.clang.note": "Code formatting applies to C/C++ code blocks in Markdown (```cpp and ```c).",
+  "config.clang.note": "Code formatting uses clang-format WASM (v22) on code blocks matching the language list above.",
 
   "about.title": "About TouchFish Formatter",
   "about.description": "A Markdown formatter for fixing common formatting issues and assisting in writing, making articles more polished and readable.",

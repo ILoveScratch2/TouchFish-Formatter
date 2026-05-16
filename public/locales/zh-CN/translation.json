@@ -52,7 +52,7 @@
   "config.clang.useCustom": "使用自己的配置",
   "config.clang.useCustomDesc": "直接编写 .clang-format 风格的 YAML 配置文本",
   "config.clang.languages": "适用语言",
-  "config.clang.languagesHint": "内置 c / cpp / h / hpp 等，可追加更多，用逗号分隔",
+  "config.clang.languagesHint": "仅格式化匹配以下标识的代码块，用逗号分隔，支持任意语言",
   "config.clang.general": "基本设置",
   "config.clang.alignment": "对齐",
   "config.clang.shortLines": "短行优化",
@@ -89,7 +89,7 @@
   "config.clang.sortIncludes": "排序 #include",
   "config.clang.includeBlocks": "include 块分组",
   "config.clang.cpp11BracedListStyle": "C++11 列表初始化空格",
-  "config.clang.note": "代码格式化在处理含 C/C++ 代码块的 Markdown 时生效，支持 ```cpp 和 ```c 代码块。",
+  "config.clang.note": "代码格式化使用 clang-format WASM (v22)，处理匹配「适用语言」列表的代码块。",
 
   "about.title": "关于 TouchFish Formatter",
   "about.description": "一个 Markdown 格式化工具，辅助修复常见格式问题和辅助编写，让排版更加规范美观。",

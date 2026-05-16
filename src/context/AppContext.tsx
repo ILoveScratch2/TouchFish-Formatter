@@ -50,7 +50,7 @@ function getDefaultClangConfig(): ClangFormatConfig {
     continuationIndentWidth: 4,
     includeBlocks: "Preserve",
     cpp11BracedListStyle: false,
-    customLanguages: "",
+    customLanguages: "c, cc, cpp, c++, cxx, h, hh, hpp, h++, hxx, inc, inl",
   };
 }
 

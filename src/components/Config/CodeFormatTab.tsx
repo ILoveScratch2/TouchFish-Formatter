@@ -87,11 +87,10 @@ export default function CodeFormatTab() {
                 <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: "block" }}>
                   {t("config.clang.languagesHint")}
                 </Typography>
-                <TextField size="small" fullWidth
-                  placeholder="java, js, cs, proto, ts"
+                <TextField size="small" fullWidth multiline minRows={1} maxRows={3}
                   value={c.customLanguages}
                   onChange={(e) => set({ customLanguages: e.target.value })}
-                  sx={{ "& input": { fontSize: 13, fontFamily: "monospace" } }} />
+                  sx={{ "& textarea": { fontSize: 13, fontFamily: "monospace" } }} />
               </Section>
 
               <Section title={t("config.clang.alignment")}>
