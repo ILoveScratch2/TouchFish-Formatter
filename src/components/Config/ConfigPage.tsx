@@ -126,7 +126,12 @@ function BasicTab() {
                 key={rule.id}
                 sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 0.5 }}
               >
-                <Typography variant="body2">{t(rule.descriptionKey)}</Typography>
+                <Box>
+                  <Typography variant="body2">{t(rule.descriptionKey)}</Typography>
+                  <Typography variant="caption" color="text.secondary">
+                    {t(`ruleHint.${rule.id}`)}
+                  </Typography>
+                </Box>
                 <Switch
                   checked={state.mathRules[rule.id] ?? false}
                   onChange={() => dispatch({ type: "TOGGLE_MATH_RULE", payload: rule.id })}
