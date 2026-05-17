@@ -11,6 +11,9 @@ export interface FormatConfig {
   fwPunctuation: boolean;
   mathRules: Record<string, boolean>;
   clangFormat: boolean;
+  normalizeMathSpaces: boolean;
+  ellipsisToFw: boolean;
+  removeDuplicateBlankLines: boolean;
 }
 
 export interface ClangFormatConfig {
@@ -57,6 +60,9 @@ export type AppAction =
   | { type: "TOGGLE_MATH_RULE"; payload: string }
   | { type: "RESET_RULES" }
   | { type: "SET_FW_PUNCTUATION"; payload: boolean }
+  | { type: "SET_NORMALIZE_MATH_SPACES"; payload: boolean }
+  | { type: "SET_ELLIPSIS_TO_FW"; payload: boolean }
+  | { type: "SET_REMOVE_DUPLICATE_BLANK_LINES"; payload: boolean }
   | { type: "SET_CLANG_ENABLED"; payload: boolean }
   | { type: "SET_CLANG_CONFIG"; payload: Partial<ClangFormatConfig> }
   | { type: "SET_CLANG_CUSTOM_CONFIG"; payload: string }
@@ -67,5 +73,8 @@ export interface AppState {
   language: string;
   mathRules: Record<string, boolean>;
   fwPunctuation: boolean;
+  normalizeMathSpaces: boolean;
+  ellipsisToFw: boolean;
+  removeDuplicateBlankLines: boolean;
   clangFormat: ClangFormatConfig;
 }

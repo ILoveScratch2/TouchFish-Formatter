@@ -1,6 +1,7 @@
 import pangu from "pangu";
 import {
   textPreprocess,
+  applyEllipsisRules,
   applyFwPunctuationPipeline,
   textPostprocess,
 } from "./punctuation";
@@ -25,7 +26,7 @@ const fwPunctuationSteps: TextTransform[] = [
   regexStep(/。\s*/g, ". "),
 ];
 
-export function formatTextNode(content: string, useFullWidth: boolean): string {
+export function formatTextNode(content: string, useFullWidth: boolean, ellipsisToFw = true): string {
   const hadLeadingSpace = content.length > 0 && content[0] === " ";
   const hadTrailingSpace = content.length > 0 && content[content.length - 1] === " ";
 
@@ -33,6 +34,10 @@ export function formatTextNode(content: string, useFullWidth: boolean): string {
 
   for (const rule of textPreprocess) {
     pipeline.push(regexStep(rule.pattern, rule.replacement as string));
+  }
+
+  if (ellipsisToFw) {
+    pipeline.push(applyEllipsisRules);
   }
 
   if (useFullWidth) {

@@ -20,8 +20,10 @@ export function formatSolution(source: string, config: FormatConfig): string {
   if (!source) return source;
   const tree = processor.parse(source);
   applyFormatter(tree, config);
-  const out = processor.stringify(tree) as unknown as string;
-  return out.endsWith("\n") ? out.slice(0, -1) : out;
+  let out = processor.stringify(tree) as unknown as string;
+  if (out.endsWith("\n")) out = out.slice(0, -1);
+  if (config.removeDuplicateBlankLines) out = out.replace(/\n{3,}/g, "\n\n");
+  return out;
 }
 
 
@@ -34,8 +36,10 @@ export async function formatSolutionAsync(
   const tree = processor.parse(source);
   applyFormatter(tree, config);
   await runClangFormat(tree, clangConfig);
-  const out = processor.stringify(tree) as unknown as string;
-  return out.endsWith("\n") ? out.slice(0, -1) : out;
+  let out = processor.stringify(tree) as unknown as string;
+  if (out.endsWith("\n")) out = out.slice(0, -1);
+  if (config.removeDuplicateBlankLines) out = out.replace(/\n{3,}/g, "\n\n");
+  return out;
 }
 
 export { MATH_RULES, getDefaultMathRules } from "./rules";

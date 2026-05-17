@@ -62,6 +62,9 @@ function loadState(): AppState {
     language: "zh-CN" as string,
     mathRules: getUiMathDefaults(),
     fwPunctuation: true,
+    normalizeMathSpaces: true,
+    ellipsisToFw: true,
+    removeDuplicateBlankLines: false,
     clangFormat: getDefaultClangConfig(),
   };
 
@@ -74,6 +77,9 @@ function loadState(): AppState {
         language: parsed.language ?? base.language,
         mathRules: parsed.mathRules ?? base.mathRules,
         fwPunctuation: parsed.fwPunctuation ?? base.fwPunctuation,
+        normalizeMathSpaces: parsed.normalizeMathSpaces ?? base.normalizeMathSpaces,
+        ellipsisToFw: parsed.ellipsisToFw ?? base.ellipsisToFw,
+        removeDuplicateBlankLines: parsed.removeDuplicateBlankLines ?? base.removeDuplicateBlankLines,
         clangFormat: parsed.clangFormat
           ? { ...base.clangFormat, ...parsed.clangFormat }
           : base.clangFormat,
@@ -100,8 +106,14 @@ function reducer(state: AppState, action: AppAction): AppState {
       };
     case "SET_FW_PUNCTUATION":
       return { ...state, fwPunctuation: action.payload };
+    case "SET_NORMALIZE_MATH_SPACES":
+      return { ...state, normalizeMathSpaces: action.payload };
+    case "SET_ELLIPSIS_TO_FW":
+      return { ...state, ellipsisToFw: action.payload };
+    case "SET_REMOVE_DUPLICATE_BLANK_LINES":
+      return { ...state, removeDuplicateBlankLines: action.payload };
     case "RESET_RULES":
-      return { ...state, mathRules: getUiMathDefaults(), fwPunctuation: true };
+      return { ...state, mathRules: getUiMathDefaults(), fwPunctuation: true, normalizeMathSpaces: true, ellipsisToFw: true, removeDuplicateBlankLines: false };
     case "SET_CLANG_ENABLED":
       return { ...state, clangFormat: { ...state.clangFormat, enabled: action.payload } };
     case "SET_CLANG_CONFIG":

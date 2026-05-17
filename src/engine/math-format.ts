@@ -3,6 +3,7 @@ import { MATH_RULES } from "./rules";
 export function formatMathNode(
   value: string,
   enabledRules: Record<string, boolean>,
+  normalizeMathSpaces = true,
 ): string {
   let result = value.trim();
 
@@ -11,5 +12,6 @@ export function formatMathNode(
     result = result.replace(rule.pattern, rule.replacement as string);
   }
 
-  return result.replace(/ +/g, " ").trim();
+  result = result.replace(/ +/g, " ");
+  return normalizeMathSpaces ? result.trim() : result;
 }

@@ -19,12 +19,20 @@ export default function EditorPage() {
 
   const doFormat = useCallback(
     async (source: string) => {
+      const config = {
+        fwPunctuation: state.fwPunctuation,
+        mathRules: state.mathRules,
+        clangFormat: state.clangFormat.enabled,
+        normalizeMathSpaces: state.normalizeMathSpaces,
+        ellipsisToFw: state.ellipsisToFw,
+        removeDuplicateBlankLines: state.removeDuplicateBlankLines,
+      };
       if (state.clangFormat.enabled) {
-        return formatSolutionAsync(source, { fwPunctuation: state.fwPunctuation, mathRules: state.mathRules, clangFormat: state.clangFormat.enabled }, state.clangFormat);
+        return formatSolutionAsync(source, config, state.clangFormat);
       }
-      return formatSolution(source, { fwPunctuation: state.fwPunctuation, mathRules: state.mathRules, clangFormat: state.clangFormat.enabled });
+      return formatSolution(source, config);
     },
-    [state.fwPunctuation, state.mathRules, state.clangFormat]
+    [state.fwPunctuation, state.mathRules, state.clangFormat, state.normalizeMathSpaces, state.ellipsisToFw, state.removeDuplicateBlankLines]
   );
 
   const handleFormat = useCallback(async () => {

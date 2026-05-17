@@ -112,6 +112,50 @@ function BasicTab() {
             onChange={(_, checked) => dispatch({ type: "SET_FW_PUNCTUATION", payload: checked })}
           />
         </Box>
+        <Divider sx={{ my: 1 }} />
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Box>
+            <Typography variant="body2">{t("config.ellipsisToFw")}</Typography>
+            <Typography variant="caption" color="text.secondary">
+              {t("config.ellipsisToFwDesc")}
+            </Typography>
+          </Box>
+          <Switch
+            checked={state.ellipsisToFw}
+            onChange={(_, checked) => dispatch({ type: "SET_ELLIPSIS_TO_FW", payload: checked })}
+          />
+        </Box>
+      </Paper>
+
+      <Paper variant="outlined" sx={{ p: 2, mb: 3, borderRadius: "12px" }}>
+        <Typography variant="subtitle2" fontWeight={600} gutterBottom>
+          {t("config.globalOptions")}
+        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Box>
+            <Typography variant="body2">{t("config.normalizeMathSpaces")}</Typography>
+            <Typography variant="caption" color="text.secondary">
+              {t("config.normalizeMathSpacesDesc")}
+            </Typography>
+          </Box>
+          <Switch
+            checked={state.normalizeMathSpaces}
+            onChange={(_, checked) => dispatch({ type: "SET_NORMALIZE_MATH_SPACES", payload: checked })}
+          />
+        </Box>
+        <Divider sx={{ my: 1 }} />
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Box>
+            <Typography variant="body2">{t("config.removeDuplicateBlankLines")}</Typography>
+            <Typography variant="caption" color="text.secondary">
+              {t("config.removeDuplicateBlankLinesDesc")}
+            </Typography>
+          </Box>
+          <Switch
+            checked={state.removeDuplicateBlankLines}
+            onChange={(_, checked) => dispatch({ type: "SET_REMOVE_DUPLICATE_BLANK_LINES", payload: checked })}
+          />
+        </Box>
       </Paper>
 
       {groups.map(({ key, title }) => {

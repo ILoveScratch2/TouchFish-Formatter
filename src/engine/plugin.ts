@@ -28,22 +28,27 @@ const INLINE_WRAPPERS = new Set([
 
 const SKIP = new Set(["root", "text", "inlineMath", "math", "inlineCode"]);
 
-function formatLeaf(node: Node, fwPunctuation: boolean, mathRules: Record<string, boolean>): void {
+function formatLeaf(node: Node, config: FormatConfig): void {
   if (node.type === "text") {
-    (node as TextNode).value = formatTextNode((node as TextNode).value, fwPunctuation);
+    (node as TextNode).value = formatTextNode(
+      (node as TextNode).value,
+      config.fwPunctuation,
+      config.ellipsisToFw,
+    );
   } else if (node.type === "inlineMath" || node.type === "math") {
     (node as unknown as { value: string }).value = formatMathNode(
       (node as unknown as { value: string }).value,
-      mathRules,
+      config.mathRules,
+      config.normalizeMathSpaces,
     );
   }
 }
 
-function spaceInlineChildren(children: Node[], fwPunctuation: boolean, mathRules: Record<string, boolean>): void {
+function spaceInlineChildren(children: Node[], config: FormatConfig): void {
   let pendingGap = false;
 
   for (const ch of children) {
-    walkNode(ch as Node, fwPunctuation, mathRules);
+    walkNode(ch as Node, config);
   }
 
   for (let i = 1; i < children.length; i++) {
@@ -88,9 +93,9 @@ function spaceInlineChildren(children: Node[], fwPunctuation: boolean, mathRules
   }
 }
 
-function walkNode(node: Node, fwPunctuation: boolean, mathRules: Record<string, boolean>): void {
+function walkNode(node: Node, config: FormatConfig): void {
   if (isLeaf(node)) {
-    formatLeaf(node, fwPunctuation, mathRules);
+    formatLeaf(node, config);
     return;
   }
 
@@ -100,17 +105,17 @@ function walkNode(node: Node, fwPunctuation: boolean, mathRules: Record<string, 
 
   if (BLOCK_WRAPPERS.has(node.type)) {
     for (const child of kids) {
-      walkNode(child as Node, fwPunctuation, mathRules);
+      walkNode(child as Node, config);
     }
     return;
   }
 
   if (INLINE_WRAPPERS.has(node.type)) {
-    spaceInlineChildren(kids, fwPunctuation, mathRules);
+    spaceInlineChildren(kids, config);
     return;
   }
   for (const child of kids) {
-    walkNode(child as Node, fwPunctuation, mathRules);
+    walkNode(child as Node, config);
   }
 }
 
@@ -129,7 +134,7 @@ function preprocessTree(tree: Node): void {
 export function applyFormatter(tree: Root, options: FormatConfig): void {
   preprocessTree(tree);
   for (const child of tree.children) {
-    walkNode(child as Node, options.fwPunctuation, options.mathRules);
+    walkNode(child as Node, options);
   }
 }
 

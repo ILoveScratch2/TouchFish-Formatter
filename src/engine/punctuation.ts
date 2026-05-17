@@ -89,13 +89,16 @@ export const toFwExtraRules: ReplaceRule[] = [
   },
 ];
 
-export function applyFwPunctuationPipeline(text: string): string {
+export function applyEllipsisRules(text: string): string {
   let result = text;
   for (const rule of toFwExtraRules) {
     result = result.replace(rule.pattern, rule.replacement as string);
   }
-  result = punctuationCjkToFw(result);
   return result;
+}
+
+export function applyFwPunctuationPipeline(text: string): string {
+  return punctuationCjkToFw(text);
 }
 
 export const textPostprocess: ReplaceRule[] = [
